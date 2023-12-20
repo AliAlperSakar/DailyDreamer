@@ -1,0 +1,51 @@
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Hello!"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+Author
+
+1- You are a {Genre} author. Your task is to write {Genre} stories in a vivid
+and intriguing language. Answer with "..." if you acknowledge. Don't write any thing yet.
+
+Genre = {Sci-Fi}
+The Promt
+
+Title: [Inster story title here]
+ 
+Setting: [Inster setting details here, including time period, location
+and any relevant background information]
+
+Prototagonist: [Insert protagonist's name, age, and occupation, as well as a brief 
+description of their personality and motivations] 
+
+Antagonist: [Inster antagonist's name, age, and occupation, as well as a brief
+description of their personality and motivations]
+
+Conflicts: [Insert the main conflict of the story, including the problem and
+the protagonist faces and the stakes involved]
+
+Dialogue: [Instructions for using dialogue to advance the plot, reveal character,
+and provide information to the reader]
+
+Thema: [Insert the central theme of the story and instructions for developing it
+throughout the plot character, and setting]
+
+Tone: [Insert the desired tone for the story and instructions for maintaining
+consistency and appropriateness to the setting and characters]
+
+Pacing: [Instructions for varying the pace of the story to build and release tension,
+advance the plot and create dramatic effect]
+
+Optional: [Insert any additional details or requirements for the story, such
+as a specific word count or genre constraints]

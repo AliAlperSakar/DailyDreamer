@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DreamyTales</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/4WXzPy5l1Tc?autoplay=1&loop=1&playlist=4WXzPy5l1Tc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+     <!-- Add to the <head> of your document -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+        
+    <style>
+        body {
+                background: url('medias/Twinkling_stars.png') no-repeat center center fixed;
+                background-size: cover;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 100%;
+                color: rgb(255, 255, 255)
+            }
+
+        @keyframes twinkling {
+            0% {
+                    opacity: 0.5;
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0.5;
+                }
+        }
+
+        .star {
+        animation: twinkling 2s infinite ease-in-out;
+        }
+
+/* 
+        body {
+            background-color: #3D30A2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        } */
+
+        #container {
+            background-color: rgba(177, 94, 255, 0.3);
+            margin: 50px auto;
+            padding: 20px;
+            width: 80%;
+            /* max-width: 800px; */
+            opacity: 70%;
+            box-shadow: 10px 10px 20px #000;
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 90%;
+            padding: 8px;
+            margin: 6px 0;
+            border: 1px solid #000;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #loading img {
+            width: 50%;
+            /* Adjust dimensions as needed */
+            height: 50%;
+            /* Adjust dimensions as needed */
+        }
+
+        .theme-button {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .theme-option img {
+            width: 100%;
+            max-width: 100%;
+            /* Set maximum width to 100% */
+            height: auto;
+        }
+
+
+        .theme-option:hover,
+        .theme-option.selected {
+            transform: scale(1.1);
+            /* Scale up the hovered or selected image */
+        }
+
+        .theme-option.selected .theme-caption {
+            display: block;
+            /* Display the theme caption on selected image */
+        }
+
+        .theme-option.selected {
+            filter: brightness(1.2);
+            /* Apply a brightness filter to selected image */
+        }
+
+        .theme-caption {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            color: white;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .theme-option:hover .theme-caption {
+            display: block;
+        }
+
+        .theme-option img {
+            width: 100%;
+            height: auto;
+        }
+
+        .theme-images {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            overflow-x: auto;
+            padding: 10px;
+        }
+
+        .theme-button {
+            flex: 1;
+            max-width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Add media query for responsive layout */
+        @media (max-width: 768px) {
+            .theme-images {
+                flex-direction: column;
+                /* Stack images vertically on small screens */
+                align-items: center;
+            }
+        }
+
+        #h2 {
+            display: flex;
+        }
+
+
+        .button-container {
+            display: flex;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        
+        .theme-section{
+            position: relative;
+            text-align: center; 
+            background-color: rgb(58, 58, 58); 
+            border: 1px solid;
+            border-radius: 10px;
+            margin: 1%;
+        }
+
+        .general-position{
+            display: flex; justify-content: center;
+        }
+
+        h2{
+            text-align: center; background-color: rgb(212, 208, 200);
+        }
+        
+        .collapsible {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.5s ease;
+        }
+
+        .segmented-control {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+        }
+
+        .segmented-control input[type="radio"] {
+            display: none; /* Hide the default radio button */
+        }
+
+        .segmented-control label {
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 1px solid #ccc; /* Customize as needed */
+            flex-grow: 1;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 1);
+            transition: background-color 0.3s ease;
+        }
+
+        .segmented-control input[type="radio"]:checked + label {
+            background-color: #e0e0e0; /* Highlight color for selected item */
+            border-color: #007bff; /* Border color for selected item */
+        }
+
+
+        .age-range-container {
+            display: flex;
+            justify-content: stretch; /* Stretch the children to fill the container */
+            align-items: stretch; /* Align items to stretch in cross-axis */
+            padding: 0; /* Remove padding if there's any */
+            margin: 0; /* Remove margin if there's any */
+            height: 50px; /* Set a fixed height for the buttons */
+        }
+
+        .age-range-btn {
+            flex: 1; /* Grow to fill the container */
+            border: 2px solid #cccbcb;
+            color: #00dfc4;
+            background-color: transparent;
+            padding: 10px; /* You can adjust padding if needed but it will affect the total width */
+            margin: 0; /* Remove margin if there's any */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .age-range-btn:hover, .age-range-btn.selected {
+            color: white;
+            background-color: #5600df; /* Fill color when hovered/selected */
+        }
+
+        /* Optional: Add a slight scaling effect on hover */
+        .age-range-btn:hover {
+            transform: scale(1.05);
+        }
+/* 
+        .inputContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            gap: 30px;
+            background: black;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } */
+
+        .inputBox
+        {
+            position: relative;
+            width: 80%;
+            justify-content: center;
+            padding-left: 10px;
+        }
+    
+        .inputBox input
+        {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: black;
+            border-radius: 5px;
+            outline: none;
+            color: #fff;
+            font-size: 1em;
+            transition: 0.5s;
+        }
+
+        .inputBox span
+        {
+            position: absolute;
+            height: 36px;
+            top: 7px;
+            padding: 0 10px 0 10px;
+            pointer-events: none;
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.25);
+            text-transform: uppercase;
+            transition: 0.5s;
+        }
+
+        .inputBox input:valid ~ span,
+        .inputBox input:focus ~ span
+        {
+            color: #00dfc4;
+            /* transform: translateX(10px); */
+            font-size: 0.65em;
+            padding: 0 10px;
+            background: #1d2b3a;
+            border-left: 1px solid #00dfc4;
+            border-right: 1px solid #00dfc4;
+        }
+
+        .inputBox input:valid,
+        .inputBox input:focus
+        {
+            border: 1px solid #00dfc4;
+        }
+
+        .hero-section {
+            justify-content: space-around; /* Center align text */
+            display: flex; /* Use flexbox */
+            align-items: center; /* Center flex items vertically */
+            flex-direction: row; /* Stack flex items vertically */
+        }
+
+        .hero-content {
+            display: inline-block; /* Make the container an inline block to shrink to fit content */
+        }
+
+        .hero-heading {
+            margin-bottom: 10px; /* Add space between the text and the image */
+            font-size: 24px; /* Adjust the size as necessary */
+            /* Add any other styles such as color, font-family, etc. */
+        }
+
+        .hero-image {
+            display: block; /* Ensure the image does not have extra space below it */
+            margin-left: auto; /* These two margins can center the image if it's not in a flex container */
+            margin-right: auto;
+            /* Set width or max-width as necessary for your layout */
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .story-content {
+            max-height: 300px; /* You can adjust as per your content */
+            overflow-y: auto; /* Enable scroll if content is larger */
+        }
+
+        .section-label {
+            position: absolute;
+            top: 80px; /* Adjust as needed */
+            right: 105px; /* Adjust as needed */
+            transform: rotate(180deg);
+            transform-origin: top right;
+            z-index: 2; /* Higher than the content of .theme-section */
+            width: 150px; /* Adjust as needed */
+            height: 100px; 
+        }
+
+        .label-text {
+            position: absolute;
+            top: 17px; /* Adjust as needed to position over the label image */
+            right: -19px; /* Adjust as needed */
+            /* transform: rotate(-45deg); */
+            transform-origin: top right;
+            z-index: 3; /* Ensure the text is above the label image */
+            color: #FFFFFF; /* Or any color that stands out on your label */
+            font-size: 20px; /* Adjust as needed */
+            font-weight: bold;
+            /* Add padding, if necessary, to position the text correctly within the rotated label */
+            padding: 2px 8px;
+            opacity: 100%;
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        .button-shake {
+            display: inline-block; /* Use inline-block or block, as appropriate for your layout */
+            animation: shake 0.5s; /* Adjust the time as needed */
+            animation-iteration-count: 5;
+        }
+
+        .button-shake:hover {
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+
+
+/* Add additional styles for the button or other elements if needed */
+
+
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div>
+        <h1 class="star">
+            <img src="../medias/Dreamy Tales Logo.png" alt="World Image"
+                style="vertical-align: middle; width: 25%;">        </h1>
+
+        <form method="post" onsubmit="showLoading()" id="form">
+            <div class="theme-section">
+                <img src="../medias/orange.png" class="section-label" style="position: absolute;" alt="Forest Theme"><label class="label-text">Theme</label>
+            </img>
+                <div id="themeImages" class="theme-images">
+                    <div class="theme-button" onclick="selectStoryTheme('Forest')">
+                        <div class="theme-option" data-theme="Forest">
+                            <img src="../medias/Forest.png" alt="Forest Theme">
+                            <span class="theme-caption">Forest</span>
+                        </div>
+                    </div>
+                    <div class="theme-button" onclick="selectStoryTheme('City')">
+                        <div class="theme-option" data-theme="City">
+                            <img src="../medias/City.png" alt="City Theme">
+                            <span class="theme-caption">City</span>
+                        </div>
+                    </div>
+                    <div class="theme-button" onclick="selectStoryTheme('Underwater')">
+                        <div class="theme-option" data-theme="Underwater">
+                            <img src="../medias/Underwater.png" alt="Underwater Theme">
+                            <span class="theme-caption">Underwater</span>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="hidden-theme-input" name="theme" value="">
+            </div>
+            
+            <div class="theme-section">
+                <img src="../medias/orange.png" class="section-label" style="position: absolute;" alt="Forest Theme"><label class="label-text" style=" right: -40px;">Age Range</label>
+            </img>
+                <div class="age-range-selection" style="display: flex; margin: 1%;">
+                    <button type="button" class="age-range-btn" onclick="selectAgeRange(this);" data-age="3-6">3-6 years</button>
+                    <button type="button" class="age-range-btn" onclick="selectAgeRange(this);" data-age="7-9">7-9 years</button>
+                    <button type="button" class="age-range-btn" onclick="selectAgeRange(this);" data-age="10-12">10-12 years</button>
+                </div>
+            </div>
+            
+             <div class="inputContainer">
+                    
+             </div>
+             
+            <div class="theme-section">
+                <div class="hero-section">
+                    <img src="../medias/orange.png" class="section-label" style="position: absolute; width: 450px; right: 390px ;" alt="Forest Theme"><label class="label-text">Hero, Friends and Story Length</label>
+                    </img>
+                    <!-- <div style="border: 2px solid white;  width: 30%;"> -->
+                        <div class="theme-section" style="width: 30%;">
+                            <div style="display: grid; text-align:center; justify-content: center; align-items: center;">
+                                <img src="../medias/sleeping moob in pajamas2.png" class="" style="width: 100%;"></img>
+                                <label for="protagonist" style="align-self: center; margin: 5px;">Hero</label>
+                            </div>
+                            <div class="inputBox">
+                                <input type="text" name="protagonist" class="hero-input" required="required">
+                                <span>Hero's Name</span>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                    
+                    <div class="theme-section" style="width: 30%;">
+                        <div style="display: grid; text-align:center; justify-content: center; align-items: center;">
+                            <img src="../medias/Friends Cozy icon.png" style="width: 100%;"></img>
+                            <label for="friends" for="protagonist" style="align-self: center; margin: 5px;">Friends</label>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" name="friends" class="heros-input" required="required">
+                            <span>Hero's Friend Name</span>
+                        </div>                       
+                    </div>
+
+                    <div class="theme-section" style="width: 30%;">
+                        <div style="display: grid; text-align:center; justify-content: center; align-items: center;">
+                            <img src="../medias/Story Lenght icon.png" style="width: 100%;"></img>
+                            <label for="story_length" for="protagonist" style="align-self: center; margin: 5px;">Story Length</label>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" name="story_length" class="hero-input" required="required">
+                            <span>Story Lenght</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="theme-section">
+                <img src="../medias/Place Icon.png" style="width: 40%;"></img>
+                <div class="age-range-selection" style="display: flex;">
+                    <img src="../medias/orange.png" class="section-label" style="position: absolute;" alt="Forest Theme"><label class="label-text">Place</label>
+                    </img>
+                    <button type="button" class="age-range-btn" onclick="selectStoryPlace(this);" place="enhanced_forest">Enhanced Forest</button>
+                    <button type="button" class="age-range-btn" onclick="selectStoryPlace(this);" place="bustling_city">Bustling City</button>
+                    <button type="button" class="age-range-btn" onclick="selectStoryPlace(this);" place="underwater_kingdom">Underwater Kingdom</button>
+                    <button type="button" class="age-range-btn" onclick="selectStoryPlace(this);" place="space">Space</button>
+                </div>
+                  
+            </div>
+
+            <div class="theme-section">
+                <img src="../medias/orange.png" class="section-label" style="position: absolute;" alt="Forest Theme"><label class="label-text">Period</label>
+                    </img>
+                <img src="../medias/Period icon.png" style="width: 40%;"></img>
+                <div class="age-range-selection" style="display: flex;">
+                    <button type="button" class="age-range-btn" onclick="selectPeriod(this);" period="ancient_times">Ancient Times</button>
+                    <button type="button" class="age-range-btn" onclick="selectPeriod(this);" period="present_day">Present Day</button>
+                    <button type="button" class="age-range-btn" onclick="selectPeriod(this);" period="future_world">Future World</button>
+                </div>
+            </div>
+
+            <div class="theme-section">
+                <img src="../medias/orange.png" class="section-label" style="position: absolute; width: 250px; right: 200px;" alt="Forest Theme"><label class="label-text">Creativity Level</label>
+                    </img>
+                <!-- <div style="display: grid; text-align:center; justify-content: center; align-items: center;"> -->
+                <img src="../medias/Creativity Level icon.png" style="width: 40%;"/>
+                <div style="margin: 5%;">
+                    <label for="creativity_level">Creativity Level:</label>
+                    <input type="range" name="creativity_level" id="creativity_level" min="0" max="1" step="0.01"
+                    oninput="updateCreativityLevel()">
+                    <span id="creativity_level_display">0.50</span><br>
+                </div>
+                <!-- </div> -->
+            </div>
+
+            <div class="theme-section">
+            <label for="add_req">Additional Request:</label>
+                <input type="text" name="add_req" placeholder="Enter additional wishes for story...">
+            </div>
+            
+            <div class="theme-section">
+                <button type="submit" class="button-shake" id="myBtn" value="Generate Story" style="text-align: center;"><img
+                        src="../medias/Generate Story icon.png" style=" width: 50%;"></img></button>
+            </div>
+                <input type="hidden" id="hidden-age-input" name="age_range" value="">
+                <input type="hidden" id="hidden-place-input" name="story_place" value="">
+                <input type="hidden" id="hidden-period-input" name="period" value="">
+                <input type="hidden" id="hidden-creativity-input" name="creativity_level" value="">
+            </form>
+
+            <div id="generatedImageSection" style="text-align: center; margin-top: 20px;">
+                <img id="generatedImage" src="" alt="Generated Image" style="max-width: 100%; display: none;" />
+            </div>
+    </div>
+        <!-- Display the generated story -->
+        {% if story_text %}
+        <div>
+            <h2 style="display: flex; justify-content: center; background-color: rgb(255, 145, 0);">Generated Story</h2>
+            <p id="story" style="display: flex; justify-content: center;">{{ story_text }}</p>
+            <!-- Like and Dislike buttons -->
+            <div style="
+            display: flex;
+            justify-content: center;">
+                <button id="likeButton" onclick="setLike(true)" style="background-color: #45a049; color: antiquewhite;">Like</button>
+                <button id="dislikeButton" onclick="setLike(false)" style="background-color: red; color: antiquewhite;">Dislike</button>
+                <input type="hidden" id="likeDislike" name="likeDislike" value="0">
+            </div>
+
+            <!-- Comment input field -->
+            
+            <h3 style="
+            display: flex;
+            justify-content: center;">Leave a Comment</h3>
+            <div style="
+            display: flex;
+            justify-content: center;">
+                <textarea id="commentInput" name="feedback" rows="4" cols="50"></textarea>
+                <br>
+                <button id="submitCommentButton">Submit Comment</button>
+            </div>
+            <!-- Thank you message -->
+            {% if like_dislike %}
+            <p>Thank you for your feedback!</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    <!-- Loading animation -->
+    <div id="loading" style="position: fixed; z-index: 1; top: 45%; left: 35%; background:  transparent;">
+        <img src="../medias/giphy.gif" alt="Loading..." /><img src="../medias/pokemon.gif" alt="Loading..." />
+    </div>
+
+
+    <!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Generated Story</h2>
+      <div id="storyContent" class="story-content">
+        <!-- The generated story will be inserted here -->
+      </div>
+    </div>
+  </div>
+  
+    <script>
+
+        function generateImage(promptText) {
+            fetch('/generate_image', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: promptText })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.image_url) {
+                    displayGeneratedImage(data.image_url);
+                } else {
+                    console.error('No image URL returned from the server');
+                }
+            })
+            .catch(error => {
+                console.error('Error generating image:', error);
+            });
+        }
+
+        // Function to display the generated image
+        function displayGeneratedImage(imageUrl) {
+            const imageElement = document.getElementById('generatedImage');
+            imageElement.src = imageUrl;
+            imageElement.style.display = 'block'; // Show the image
+        }
+    </script>
+
+    <!-- JavaScript to show loading animation and handle like/dislike and comment submission -->
+    <script>
+                // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn"); // You should have a button with id="myBtn"
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+        modal.style.display = "block";
+        document.getElementById("storyContent").innerHTML = { story_text };
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
+        // Helper function to remove 'selected' class from all buttons of the same type
+        function clearSelections(buttonClass) {
+            document.querySelectorAll(buttonClass).forEach(btn => {
+                btn.classList.remove('selected');
+            });
+        }
+
+        function selectAgeRange(element) {
+            // Clear the 'selected' class from all buttons
+            document.querySelectorAll('.age-range-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+
+            // Add the 'selected' class to the clicked button
+            element.classList.add('selected');
+
+            // Set the hidden input value
+            var selectedAge = element.getAttribute('data-age');
+            document.getElementById('hidden-age-input').value = selectedAge;
+            console.log('Selected age range:', selectedAge);
+        }
+
+        function selectStoryPlace(element) {
+            var selectedPlace = element.getAttribute('place');
+            document.getElementById('hidden-place-input').value = selectedPlace;
+            console.log('Selected place:', selectedPlace);
+        }
+
+        function selectPeriod(element) {
+            var selectedPeriod = element.getAttribute('period');
+            document.getElementById('hidden-period-input').value = selectedPeriod;
+            console.log('Selected period:', selectedPeriod);
+        }
+
+    
+        // function selectAgeRange(element) {
+        //     // logic to remove and add selected class
+        //     var selectedAgeRange = element.getAttribute('age_range');
+        //     console.log('Selected Age Range:', selectedAgeRange);
+        //     // set hidden input value if needed
+        // }
+
+        // // Similarly for Place and Period selections:
+        // function selectStoryPlace(element) {
+        //     // logic to remove and add selected class
+        //     var selectedPlace = element.getAttribute('story_place');
+        //     console.log('Selected place:', selectedPlace);
+        //     // set hidden input value if needed
+        // }
+
+        function selectStoryTheme(theme) {
+            // Clear previous selections
+            clearSelections('.theme-option');
+
+            // Add 'selected' class to the clicked theme
+            document.querySelector(`[data-theme="${theme}"]`).classList.add('selected');
+
+            // Update the hidden input's value
+            document.getElementById('hidden-theme-input').value = theme;
+        }
+
+
+        // function selectPeriod(element) {
+        //     // logic to remove and add selected class
+        //     var selectedPeriod = element.getAttribute('story_period');
+        //     console.log('Selected period:', selectedPeriod);
+        //     // set hidden input value if needed
+        // }
+
+        // For the creativity level slider:
+        function updateCreativityLevel() {
+            var creativitySlider = document.getElementById("creativity_level");
+            var displayElement = document.getElementById("creativity_level_display");
+            displayElement.textContent = creativitySlider.value;
+            console.log('Creativity Level:', creativitySlider.value);
+        }
+
+
+    
+        function submitForm() {
+            // Here you can add form validation before submission if needed
+            showLoading();
+            document.getElementById('form').submit();
+            displayGeneratedStory(response.storyText);
+            // Assuming 'prompt' is a variable containing the text prompt for image generation
+            const prompt = document.getElementById('story').textContent || 'Default prompt text';
+            generateImage(prompt);
+
+        }
+    
+        
+        function displayGeneratedStory(storyText) {
+            document.getElementById("storyContent").innerText = storyText; // Update the modal content
+            modal.style.display = "block"; // Show the modal
+        }
+        
+        // Event listeners for the form buttons
+        document.addEventListener('DOMContentLoaded', function () {
+            const ageRangeButtons = document.querySelectorAll('.age_range-btn');
+            ageRangeButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    selectAgeRange(this);
+                });
+            });
+    
+            const placeButtons = document.querySelectorAll('.place-btn');
+            placeButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    selectStoryPlace(this);
+                });
+            });
+    
+            const periodButtons = document.querySelectorAll('.period-btn');
+            periodButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    selectPeriod(this);
+                });
+            });
+    
+            const creativitySlider = document.getElementById("creativity_level");
+            creativitySlider.addEventListener('input', updateCreativityLevel);
+    
+            const generateStoryButton = document.querySelector('button[type="submit"]');
+            generateStoryButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                submitForm();
+            });
+        });
+    </script>
+    
+
+
+    <script>
+
+        // function setTheme(theme) {
+        //     console.log(theme)
+        //     // Send the selected theme to the server
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/set_theme",
+        //         contentType: "application/json",
+        //         data: JSON.stringify({ theme: theme }),
+        //         success: function (response) {
+        //             console.log(response.message);
+        //         },
+        //         error: function (error) {
+        //             console.log(error);
+        //         }
+        //     });
+        // }
+        // function updateCreativityLevel() {
+        //     var creativitySlider = document.getElementById("creativity_level");
+        //     var displayElement = document.getElementById("creativity_level_display");
+        //     displayElement.textContent = creativitySlider.value;
+        // }
+    </script>
+
+    <script>
+        function showLoading() {
+            const loadingDiv = document.getElementById("loading");
+            loadingDiv.style.display = "block";
+        }
+
+        let like = null;
+        function setLike(feedback) {
+            like = feedback;
+        }
+
+        submitCommentButton.addEventListener("click", () => {
+            const commentInput = document.getElementById("commentInput").value;
+            
+            const storyText = document.getElementById("story").textContent;
+            const all = 'Future comment:' + commentInput + 'Like:' + like + 'Story Information:' + storyText;
+            
+            console.log(storyText)
+            
+            submitFeedback(all);
+        });
+
+        function submitFeedback(all) {
+            $.ajax({
+                type: "POST",
+                url: "/submit_feedback",
+                contentType: "application/json",
+                data: JSON.stringify({ feedback: all }),
+                success: function (response) {
+                    console.log(response.message);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

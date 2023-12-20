@@ -1,0 +1,459 @@
+    body {
+            background: url('medias/Twinkling_stars.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 100%;
+            color: rgb(255, 255, 255)
+        }
+
+    @keyframes twinkling {
+        0% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.5;
+            }
+    }
+
+    .star {
+    animation: twinkling 2s infinite ease-in-out;
+    }
+
+/* 
+    body {
+        background-color: #3D30A2;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    } */
+
+    #container {
+        background-color: rgba(177, 94, 255, 0.3);
+        margin: 50px auto;
+        padding: 20px;
+        width: 80%;
+        /* max-width: 800px; */
+        opacity: 70%;
+        box-shadow: 10px 10px 20px #000;
+    }
+
+    h1 {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 90%;
+        padding: 8px;
+        margin: 6px 0;
+        border: 1px solid #000;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    #loading {
+        display: none;
+        text-align: center;
+        padding: 20px;
+    }
+
+    #loading img {
+        width: 50%;
+        /* Adjust dimensions as needed */
+        height: 50%;
+        /* Adjust dimensions as needed */
+    }
+
+    .theme-button {
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    .theme-option img {
+        width: 100%;
+        max-width: 100%;
+        /* Set maximum width to 100% */
+        height: auto;
+    }
+
+
+    .theme-option:hover,
+    .theme-option.selected {
+        transform: scale(1.1);
+        /* Scale up the hovered or selected image */
+    }
+
+    .theme-option.selected .theme-caption {
+        display: block;
+        /* Display the theme caption on selected image */
+    }
+
+    .theme-option.selected {
+        filter: brightness(1.2);
+        /* Apply a brightness filter to selected image */
+    }
+
+    .theme-caption {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        color: white;
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 5px;
+        border-radius: 5px;
+        display: none;
+    }
+
+    .theme-option:hover .theme-caption {
+        display: block;
+    }
+
+    .theme-option img {
+        width: 100%;
+        height: auto;
+    }
+
+    .theme-images {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        overflow-x: auto;
+        padding: 10px;
+    }
+
+    .theme-button {
+        flex: 1;
+        max-width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Add media query for responsive layout */
+    @media (max-width: 768px) {
+        .theme-images {
+            flex-direction: column;
+            /* Stack images vertically on small screens */
+            align-items: center;
+        }
+    }
+
+    #h2 {
+        display: flex;
+    }
+
+
+    .button-container {
+        display: flex;
+    }
+
+    .button {
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .button:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+    }
+    
+    .theme-section{
+        position: relative;
+        text-align: center; 
+        background-color: rgb(58, 58, 58); 
+        border: 1px solid;
+        border-radius: 10px;
+        margin: 1%;
+    }
+
+    .general-position{
+        display: flex; justify-content: center;
+    }
+
+    h2{
+        text-align: center; background-color: rgb(212, 208, 200);
+    }
+    
+    .collapsible {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.5s ease;
+    }
+
+    .segmented-control {
+        display: flex;
+        justify-content: space-around;
+        margin: 10px 0;
+    }
+
+    .segmented-control input[type="radio"] {
+        display: none; /* Hide the default radio button */
+    }
+
+    .segmented-control label {
+        cursor: pointer;
+        padding: 10px 20px;
+        border: 1px solid #ccc; /* Customize as needed */
+        flex-grow: 1;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 1);
+        transition: background-color 0.3s ease;
+    }
+
+    .segmented-control input[type="radio"]:checked + label {
+        background-color: #e0e0e0; /* Highlight color for selected item */
+        border-color: #007bff; /* Border color for selected item */
+    }
+
+
+    .age-range-container {
+        display: flex;
+        justify-content: stretch; /* Stretch the children to fill the container */
+        align-items: stretch; /* Align items to stretch in cross-axis */
+        padding: 0; /* Remove padding if there's any */
+        margin: 0; /* Remove margin if there's any */
+        height: 50px; /* Set a fixed height for the buttons */
+    }
+
+    .age-range-btn {
+        flex: 1; /* Grow to fill the container */
+        border: 2px solid #cccbcb;
+        color: #00dfc4;
+        background-color: transparent;
+        padding: 10px; /* You can adjust padding if needed but it will affect the total width */
+        margin: 0; /* Remove margin if there's any */
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .age-range-btn:hover, .age-range-btn.selected {
+        color: white;
+        background-color: #5600df; /* Fill color when hovered/selected */
+    }
+
+    /* Optional: Add a slight scaling effect on hover */
+    .age-range-btn:hover {
+        transform: scale(1.05);
+    }
+/* 
+    .inputContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        flex-direction: column;
+        gap: 30px;
+        background: black;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    } */
+
+    .inputBox
+    {
+        position: relative;
+        width: 80%;
+        justify-content: center;
+        padding-left: 10px;
+    }
+
+    .inputBox input
+    {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        background: black;
+        border-radius: 5px;
+        outline: none;
+        color: #fff;
+        font-size: 1em;
+        transition: 0.5s;
+    }
+
+    .inputBox span
+    {
+        position: absolute;
+        height: 36px;
+        top: 7px;
+        padding: 0 10px 0 10px;
+        pointer-events: none;
+        font-size: 1em;
+        color: rgba(255, 255, 255, 0.25);
+        text-transform: uppercase;
+        transition: 0.5s;
+    }
+
+    .inputBox input:valid ~ span,
+    .inputBox input:focus ~ span
+    {
+        color: #00dfc4;
+        /* transform: translateX(10px); */
+        font-size: 0.65em;
+        padding: 0 10px;
+        background: #1d2b3a;
+        border-left: 1px solid #00dfc4;
+        border-right: 1px solid #00dfc4;
+    }
+
+    .inputBox input:valid,
+    .inputBox input:focus
+    {
+        border: 1px solid #00dfc4;
+    }
+
+    .hero-section {
+        justify-content: space-around; /* Center align text */
+        display: flex; /* Use flexbox */
+        align-items: center; /* Center flex items vertically */
+        flex-direction: row; /* Stack flex items vertically */
+    }
+
+    .hero-content {
+        display: inline-block; /* Make the container an inline block to shrink to fit content */
+    }
+
+    .hero-heading {
+        margin-bottom: 10px; /* Add space between the text and the image */
+        font-size: 24px; /* Adjust the size as necessary */
+        /* Add any other styles such as color, font-family, etc. */
+    }
+
+    .hero-image {
+        display: block; /* Ensure the image does not have extra space below it */
+        margin-left: auto; /* These two margins can center the image if it's not in a flex container */
+        margin-right: auto;
+        /* Set width or max-width as necessary for your layout */
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        padding-top: 60px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .story-content {
+        max-height: 300px; /* You can adjust as per your content */
+        overflow-y: auto; /* Enable scroll if content is larger */
+    }
+
+    .section-label {
+        position: absolute;
+        top: 80px; /* Adjust as needed */
+        right: 105px; /* Adjust as needed */
+        transform: rotate(180deg);
+        transform-origin: top right;
+        z-index: 2; /* Higher than the content of .theme-section */
+        width: 150px; /* Adjust as needed */
+        height: 100px; 
+    }
+
+    .label-text {
+        position: absolute;
+        top: 17px; /* Adjust as needed to position over the label image */
+        right: -19px; /* Adjust as needed */
+        /* transform: rotate(-45deg); */
+        transform-origin: top right;
+        z-index: 3; /* Ensure the text is above the label image */
+        color: #FFFFFF; /* Or any color that stands out on your label */
+        font-size: 20px; /* Adjust as needed */
+        font-weight: bold;
+        /* Add padding, if necessary, to position the text correctly within the rotated label */
+        padding: 2px 8px;
+        opacity: 100%;
+    }
+
+    @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
+    .button-shake {
+        display: inline-block; /* Use inline-block or block, as appropriate for your layout */
+        animation: shake 0.5s; /* Adjust the time as needed */
+        animation-iteration-count: 5;
+    }
+
+    .button-shake:hover {
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+    }
+
+
+
+/* Add additional styles for the button or other elements if needed */

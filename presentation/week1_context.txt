@@ -1,0 +1,457 @@
+Task
+an LLM-backed web application which provides stories for children
+	1) customize the generated stories by providing at least the name of the child as the main protagonist
+		- protagonist's name, friend's name, and story theme
+	2) validate the input and output as you should produce only children stories
+	3) take equality concerns into consideration, e.g., gender stereotype stories
+	4) The user should not just have one text field to directly query the LLM.
+	
+	Some suggestions
+		a) Add user accounts to save constraints, preferences, favorites
+		b) Save past generated stories, allow a rating
+		c) Collect feedback with a form in the application.
+		d) Summarize favorite stories to automatically extract preferences.
+		
+		
+		
+Monday
+	1) think about possible opportunities and problems of using an AI system for this type of application
+		
+		Opportunities 
+			
+			1) Customization
+				- offer a high level of personalization
+				- makes the stories more engaging and relatable for each child
+			2) Variety
+				- generate a wide range of stories
+			3) Scalability
+				- scale to accommodate a growing number of users
+			4) Language Proficiency
+				-  language complexity, catering to different age groups and reading levels
+			5) Learning Aid
+				- helping children learn about values, ethics, problem-solving, and more.
+				
+		Challanges
+			
+			1) Input Validation
+				- validate inputs to prevent any malicious or inappropriate content from being generated
+			2) Equality and Inclusivity
+				- free from gender, racial, or other stereotypes that could perpetuate bias or discrimination
+			3) Content Quality
+				- Generated stories must be coherent, grammatically correct, and engaging.
+			4) Ethical Concerns
+				- avoid generating stories that could potentially promote harmful behavior or values
+			5) Feedback Loop
+				- feedback mechanism where users can report inappropriate content
+				- provide feedback on story quality will be crucial for continuous improvement.
+			6) Data Privacy
+				- even though it's related to customization, should be handled carefully 
+			7) Long-Term Engagement
+				- keeping the generated stories fresh and interesting over time
+				- Regular updates and the ability to incorporate new themes
+				
+				
+			s1 p6
+				One challenge for …
+					• … the machine learning
+					• … the engineering for building the product
+					• … operating and updating the product
+					• … for the team and the management
+					• … the business side
+					• … safety and ethics
+				
+			s2 p17
+				Data science challenges
+				• Infrastructure
+					• Understand chat bot infrastructure and capabilities
+				
+				• Knowing topics
+					• Identify what users talk about
+					• Train/test concepts with past chat logs
+				
+				• Guiding conversations
+					• Support for open-ended conversations
+						→ Requires detecting topic and finding a good response
+						→ Intent modeling!
+					• Is talk about parents and children on topic when discussing divorce?
+						→ Many corner cases!
+						
+				
+
+				
+		Mitigation Strategies
+		
+			1) Pre-trained Models
+				- already been fine-tuned to avoid common biases and stereotypes
+			2) Customization Guidelines
+				- to prevent misuse and ensure generated content aligns with the intended purpose
+			3) Diverse Training Data
+				- to reduce biases and promote inclusivity
+			4) Human Review
+				- to ensure the generated stories meet quality and ethical standards
+			5) Feedback Mechanism
+				-  to report any inappropriate content or quality issues
+			6) Regular Updates
+				- update the AI model with new data
+				- guidelines to improve story quality and relevance
+			7) Transparency
+				- information about how the AI generates stories 
+				- its limitations
+				- the steps taken to mitigate biases
+			
+		
+		delicate balance between customization, content quality, ethical considerations, and user engagement. 
+		By addressing the challenges systematically and leveraging the opportunities, 
+		you can create an application that provides delightful and meaningful experiences 
+		for young readers while upholding important values.
+			
+	
+	4) Briefly list system goals for your application in a document
+	
+		
+	
+		Organizational objectives 
+			- Innate/overall goals of the organization
+			- to measure: knowledge gained, publications
+				a) Scalability
+					- handling a growing user base and deliver stories efficiently
+				b) Long-Term Engagement
+					-  diverse range of story themes, updates, and new content
+				c) Data Privacy
+					- ensure compliance with data privacy regulations to protect 
+					
+				s4 p12
+				• Businesses
+					• Current revenue, profit
+					• Future revenue, profit
+					• Reduce business risks
+				Non-profits
+					• Quality of life
+					• Public policy goals
+				 
+				
+		Leading indicators
+			- Measures correlating with future success, from the business perspective
+			- to measure: customer sentiment, market share
+				a) User Safety
+					- input validation and content screening mechanism
+					- to prevent inappropriate or malicious user input and maintain a safe environment
+				b) Feedback Loop
+					- to gather input on content quality, accuracy, and appropriateness, 
+					- facilitating continuous improvement
+				c) Transparency
+					- explanations of how the AI generates stories
+					- the steps taken to minimize biases, ensuring transparency
+					
+				s4 p12
+				Examples
+					• Customer sentiment: do they like the product?
+					• Customer engagement: how often do they use the product?
+					• Time spent using product
+					• Changes in customer base (growth, steady, decline)
+					• Changes in reviews and ratings
+					 Can be misleading
+						• Example: more users does not automatically mean higher profits
+								
+			
+		User outcomes
+			- How well the system is serving its users, from the users’ perspective
+			- to measure: user saves time/achieves goals
+				a) Personalization
+					- to customize story details to create tailored and engaging narratives for each child
+				b) Inclusivity
+					- generated stories are free from stereotypes and biases, promoting diversity
+					- positive values to provide an inclusive experience for all children
+				c) Content Quality
+					- Generate coherent, grammatically correct, and age-appropriate stories
+				d) Ethical Storytelling
+					- avoiding content that could encourage harmful behavior or values
+				e) Educational Value
+					- educational content, helping children learn valuable life lessons and skills
+				f) User Experience
+					-  intuitive and user-friendly interface
+						- allows seamless customization of story details
+						- easy navigation for users of all ages
+						
+						
+		Model properties
+			- Quality of the model used in a system, from the model’s perspective
+			- to measure: accuracy, training cost, fairness measurements
+				a) Personalization
+					- to customize story details to create tailored and engaging narratives for each child
+				b) Inclusivity
+					- generated stories are free from stereotypes and biases, promoting diversity
+					- positive values to provide an inclusive experience for all children
+				c) Content Quality
+					- Generate coherent, grammatically correct, and age-appropriate stories
+				d) Ethical Storytelling
+					- avoiding content that could encourage harmful behavior or values
+				e) User Safety
+					- input validation and content screening mechanism
+					- to prevent inappropriate or malicious user input and maintain a safe environment
+				f) Data Privacy
+					- ensure compliance with data privacy regulations to protect 
+				g) Transparency
+					- explanations of how the AI generates stories
+					- the steps taken to minimize biases, ensuring transparency
+				h) User Experience
+					- intuitive and user-friendly interface
+						- allows seamless customization of story details
+						- easy navigation for users of all ages
+				
+				
+		
+					
+1) Personalization
+	- to customize story details to create tailored and engaging narratives for each child
+2) Inclusivity
+	- generated stories are free from stereotypes and biases, promoting diversity
+	- positive values to provide an inclusive experience for all children
+3) Content Quality
+	- Generate coherent, grammatically correct, and age-appropriate stories
+4) Ethical Storytelling
+	- avoiding content that could encourage harmful behavior or values
+5) User Safety
+	- input validation and content screening mechanism
+	- to prevent inappropriate or malicious user input and maintain a safe environment
+6) Scalability
+	- handling a growing user base and deliver stories efficiently
+7) Feedback Loop
+	- to gather input on content quality, accuracy, and appropriateness, 
+	- facilitating continuous improvement
+8) Educational Value
+	- educational content, helping children learn valuable life lessons and skills
+9) Data Privacy
+	- ensure compliance with data privacy regulations to protect 
+10) Long-Term Engagement
+	-  diverse range of story themes, updates, and new content
+11) Transparency
+	- explanations of how the AI generates stories
+	- the steps taken to minimize biases, ensuring transparency
+12) User Experience
+	-  intuitive and user-friendly interface
+		- allows seamless customization of story details
+		- easy navigation for users of all ages
+		
+		
+		
+
+
+Wednesday
+
+	task 2
+			There are some constraints you need to consider, such as ensuring the stories are appropriate for children and avoiding gender stereotypes.
+
+			Here's a step-by-step approach to implementing this application:
+
+			User Interface (UI) Design:
+				Design a user-friendly interface where users can input the required details for generating a story. This could include fields for protagonist's name, friend's name, theme, and any other relevant details.
+
+			Input Validation:
+				Implement input validation to ensure that the details provided by the user are appropriate and valid. For instance, you might want to restrict input length, avoid special characters, and prevent inappropriate language.
+
+			Story Generation:
+				Utilize the LLM to generate the story based on the user's input. However, rather than allowing direct access to the LLM, create templates and prompts that guide the AI to generate stories in a child-friendly manner, avoiding any sensitive or inappropriate content.
+
+			Content Constraints:
+				Implement constraints to ensure the generated stories meet certain criteria, such as avoiding gender stereotypes, inappropriate language, or themes not suitable for children. This might involve filtering out certain phrases or ideas from the generated content.
+
+			Quality Control:
+				Establish a review process where generated stories are checked for any issues that might have slipped through the filters. This could involve manual review or using additional AI tools for content moderation.
+
+			Diverse Story Options:
+				Provide users with multiple story options based on their input. This can enhance user engagement and allow them to choose a story that aligns well with their preferences.
+
+			Preview and Selection:
+				Allow users to preview the generated stories before making a final selection. This way, they can ensure the story fits their requirements before proceeding.
+
+			User Feedback:
+				Incorporate a feedback mechanism where users can report any issues they find in the generated stories. This feedback can help you continuously improve the quality of the stories and refine your filters.
+
+			User Guidance:
+				Provide clear instructions to users about the type of input they can provide and the themes that are appropriate. This can help them create meaningful and enjoyable stories for children.
+
+			Testing:
+				Implement comprehensive testing, including unit tests for different components of the application, as well as user testing to ensure the application is easy to use and the generated stories are appropriate.
+
+			Continuous Improvement:
+				Regularly update and refine your application based on user feedback and any issues that arise. This will help you maintain a high standard of quality and user satisfaction.
+
+			Remember, the key is to strike a balance between customization and content control to ensure that the stories generated are both personalized and appropriate for children.
+			
+		
+		
+		
+	task 3, task 4(second mitigation sentences)
+			AI systems, including language models, can sometimes produce unexpected or incorrect outputs. Here are some examples of possible failures of the AI component in your children's story generation system, along with strategies to mitigate them:
+
+			Inappropriate Content:
+				Failure: The AI generates a story that includes inappropriate language or themes not suitable for children.
+				Mitigation: Implement content filtering and moderation mechanisms to prevent the inclusion of inappropriate content. Set up a review process to catch any content that might slip through automated filters.
+							Implement a content moderation system that scans the generated stories for inappropriate language or themes. If any content is flagged, have a human reviewer review and edit the story before it's presented to the user.
+
+			Gender Stereotypes:
+				Failure: The AI inadvertently generates a story that reinforces gender stereotypes.
+				Mitigation: Create prompts and templates that promote gender-neutral language and scenarios. Review and adjust the generated content to ensure it avoids stereotypes and promotes inclusivity.
+							Use gender-neutral prompts and templates. When reviewing stories, check for any instances where gender stereotypes might be present and make necessary adjustments to promote balanced narratives.
+			
+			Incoherent or Incomplete Stories:
+				Failure: The AI generates stories that lack coherence, have plot holes, or abruptly end.
+				Mitigation: Design templates and prompts that guide the AI to create coherent narratives. Implement quality checks to identify stories with incomplete plots or illogical progression.
+							Implement a story coherence scoring mechanism. If a story falls below a certain coherence threshold, flag it for manual review before presenting it to the user. Consider providing the AI with guidance on maintaining plot coherence.
+
+			Misunderstood Themes:
+				Failure: The AI misinterprets the user's input, resulting in a story that doesn't match the intended theme.
+				Mitigation: Use specific and detailed prompts that clearly define the theme of the story. Incorporate user-provided context to ensure the AI understands the user's requirements accurately.
+							Allow users to review a summary or outline of the story before finalization. This gives them an opportunity to ensure that the AI's interpretation aligns with their intended theme.
+
+			Overly Complex Language:
+				Failure: The AI generates stories with language that is too complex for the target audience (children).
+				Mitigation: Set guidelines for the level of language complexity. Use simpler vocabulary and sentence structures in the prompts to guide the AI toward producing age-appropriate content.
+							Include guidelines for language complexity in the prompts. Review the generated stories to ensure they're written in a way that is suitable for the target age group.
+
+			Repetitive or Generic Stories:
+				Failure: The AI generates stories that feel repetitive or lack uniqueness.
+				Mitigation: Create a variety of story templates and introduce randomness to the AI's responses to add diversity to the generated stories. Incorporate elements from the user's input to make the story more personalized.
+							Incorporate a story variation algorithm that introduces subtle differences in characters, settings, and plot details. Avoid direct repetition of phrases and descriptions.
+
+			Cultural Insensitivity:
+				Failure: The AI generates stories that display cultural insensitivity or lack awareness of diverse backgrounds.
+				Mitigation: Educate the AI by exposing it to a wide range of cultural references and perspectives. Implement checks to ensure that the generated content respects different cultures and avoids offensive stereotypes.
+							Incorporate a diverse range of cultural references in the AI's training data. Additionally, implement a cultural sensitivity check that flags stories containing potentially insensitive content for human review.
+
+			Lack of Engagement:
+				Failure: The AI generates stories that fail to engage or captivate the child's interest.
+				Mitigation: Incorporate storytelling techniques that are known to engage children, such as vivid descriptions, relatable characters, and imaginative settings. Consider user feedback to refine the storytelling approach.
+							Utilize storytelling techniques known to engage children, such as interactive dialogues, descriptive scenes, and relatable characters. Monitor user feedback to identify stories that might not be engaging.
+
+			Over-Reliance on Prompts:
+				Failure: The AI overly relies on the provided prompts, resulting in stories that lack creativity.
+				Mitigation: Balance the use of prompts with creative freedom. Encourage the AI to add unique twists and imaginative elements to the stories.
+							Encourage the AI to introduce creative elements by providing suggestions for imaginative twists and unexpected plot developments. Encourage the AI to use its creative capacity.							
+
+			Unintended Content References:
+				Failure: The AI unknowingly includes references or phrases that are inappropriate or unfamiliar to children.
+				Mitigation: Review the generated stories to identify any references that might not be suitable for children. Use a library of child-appropriate references to guide the AI's content generation.
+							Maintain a library of child-appropriate references, idioms, and phrases. Guide the AI's content generation using this library to ensure that references are appropriate and understandable for children.
+
+			By implementing these mitigation strategies and continuously monitoring the output of the AI component, you can improve the quality and appropriateness of the generated children's stories while minimizing the risk of undesirable outcomes.
+			
+			
+			
+	taks 5
+		ensuring equality and avoiding bias is crucial in any application, especially when generating content for children. Here's how you can address equality concerns in your children's story generation application:
+
+			Identifying Bias and Equality Issues:
+				Gender Bias: Regularly review generated stories for any instances of gender bias or stereotyping. Look for patterns where certain genders are consistently portrayed in specific roles or attributes.
+				Cultural Bias: Monitor stories for any cultural bias or assumptions that might reinforce stereotypes or exclude certain cultures.
+				Ethnic and Racial Bias: Be attentive to how characters of different ethnicities and races are portrayed in the stories. Avoid any language that perpetuates racial stereotypes.
+			
+			Measuring Equality:
+				Bias Detection: Develop an automated bias detection system that scans the generated stories for potential bias or stereotypes. This could involve using predefined lists of biased terms or phrases.
+				Diversity Metrics: Measure the diversity of characters and their roles in the stories. Ensure that characters of different genders, backgrounds, and abilities are represented fairly.
+			
+			Mitigating Equality Issues:
+				Diverse Prompts: Create prompts that encourage the AI to generate stories with a wide range of characters and scenarios. Include explicit guidance on avoiding bias and stereotypes.
+				Guided Training Data: Train the AI model on diverse and inclusive training data. Expose it to stories that showcase equality and challenge biases.
+				Bias Corrections: Implement a post-generation bias correction step. If the system detects bias or inequality, have it suggest alternative phrasing or content that is more balanced.
+				Human Review: Assign human reviewers to check stories for bias and equality issues before they're presented to users. This ensures a second layer of scrutiny.
+				User Feedback: Allow users to provide feedback on stories they find biased or inappropriate. Use this feedback to refine the AI model and improve the quality of generated stories.
+			
+			Transparency and Accountability:
+				Explainability: Use techniques to make the AI's decision-making process more transparent. Explain why certain character roles or scenarios were chosen in the story.
+				Bias Reporting: Implement a feature that allows users to report stories they believe contain bias or inequality. This demonstrates a commitment to addressing user concerns.
+			
+			Regular Audits and Updates:
+				Bias Audits: Periodically conduct bias audits where you review a sample of generated stories to identify potential bias. Use this information to refine the AI model and prompts.
+				AI Model Updates: Regularly update the AI model with new training data that promotes equality and inclusivity.
+			
+			Ethical AI Development:
+				Collaborate with diverse teams during the development process to ensure different perspectives are considered and biases are caught early.
+				Engage ethicists and content specialists who can provide guidance on equality and sensitivity.
+			
+		By integrating these measures, you can work towards creating an application that not only generates personalized and engaging children's stories but also upholds principles of equality, diversity, and inclusivity in the content it produces.
+		
+		
+Thursday
+
+	task 1, task 2(next space)
+	
+		Evaluating the quality of the model's generated stories is crucial to ensure that the content meets the desired standards. Here's how you can evaluate the model's quality in your children's story generation application:
+
+			Story Element and Constraint Sets:
+				Define a set of story elements (characters, settings, conflicts, resolutions, etc.) that the model should incorporate into the generated story.
+				Establish constraints such as themes, tones, and age-appropriate language that the model must adhere to.
+					Ensure that the generated stories consistently incorporate the specified story elements and constraints, such as characters, settings, conflicts, resolutions, and themes.
+			
+			Logical Coherence and Completeness:
+				Evaluate the generated stories for logical coherence. Check if the story flows smoothly, with logical connections between events and characters' actions.
+				Ensure that each story has a clear beginning, middle, and end, and that all major story elements are addressed.
+					Review the stories to confirm that they have a clear beginning, middle, and end.
+					Check for logical progression of events and actions that contribute to a coherent storyline.
+			
+			Theme Adherence:
+				Check if the generated story aligns with the specified theme or topic provided by the user.
+				Verify that the story maintains the intended tone, whether it's adventurous, educational, humorous, etc.
+					Evaluate whether the generated stories align with the provided themes and topics.
+					Verify that the tone of the story matches the intended theme.
+			
+			Character Consistency:
+				Ensure that the characters' actions, personalities, and motivations remain consistent throughout the story.
+				Evaluate whether the characters' development and interactions are appropriate for a children's story.
+					Assess if the characters' actions and motivations remain consistent throughout the story.
+					Verify that characters' personalities and developments are appropriate and engaging.
+			
+			Conflict Resolution:
+				Assess how conflicts introduced in the story are resolved. Ensure that resolutions promote positive values and are appropriate for a young audience.
+					Review how conflicts are introduced and resolved in the stories.
+					Ensure that resolutions are satisfactory and promote positive values for children.
+			
+			Language Complexity:
+				Evaluate the language complexity of the story. Ensure that sentences and vocabulary are suitable for the target age group.
+				Use readability metrics to gauge whether the story is comprehensible to children.
+					Analyze the language complexity of the stories to ensure that the vocabulary and sentence structures are suitable for the target age group.
+					Check for readability using appropriate metrics.
+			
+			Diversity and Inclusivity:
+				Check if the characters and scenarios are diverse and inclusive, representing different genders, cultures, and backgrounds.
+				Evaluate whether the content avoids stereotypes and promotes a positive message.
+					Evaluate whether the stories reflect diversity and inclusivity in terms of characters' backgrounds, cultures, and genders.
+					Check for the absence of stereotypes and the promotion of positive representation.
+			
+			User Feedback:
+				Incorporate user feedback on generated stories. Allow users to rate stories based on quality and appropriateness.
+				Analyze feedback to identify trends and areas for improvement.
+					Analyze user feedback and ratings to identify patterns and trends related to story quality.
+					Use feedback to make refinements and improvements.
+			
+			Automated Checks:
+				Implement automated checks that analyze story structure, coherence, grammar, and adherence to constraints.
+				Utilize language analysis tools to identify potential issues.
+					Implement automated checks to verify story coherence, grammar, and adherence to constraints.
+					Assess the effectiveness of these checks in identifying potential issues.
+			
+			Human Review:
+				Assign human reviewers to assess a subset of generated stories for quality and adherence to guidelines.
+				Human reviewers can provide insights that automated checks might miss.
+					Conduct a human review of a sample of generated stories to assess their overall quality and alignment with guidelines.
+					Use feedback from human reviewers to refine the model and prompts.
+			
+			Quality Scoring:
+				Develop a quality scoring system that assigns scores to generated stories based on various criteria.
+				Stories that meet all quality criteria receive higher scores.
+					Apply the quality scoring system to rate the generated stories based on predefined criteria.
+					Evaluate the distribution of scores and identify stories that consistently meet high standards.
+			
+			Benchmarking:
+				Use benchmarking data from a wide range of children's stories to compare the model's output against established standards.
+				Analyze where the model's stories align with or deviate from these benchmarks.
+					Compare the generated stories against benchmarked children's stories to identify similarities and differences.
+					Use benchmarking data to assess the level of quality achieved.
+			
+			Continuous Improvement:
+				Regularly analyze evaluation results and user feedback to identify patterns of success and areas for enhancement.
+				Use this information to fine-tune the model, adjust prompts, and enhance content guidelines.
+				By employing a combination of automated checks, human review, user feedback, and benchmarking, you can effectively evaluate the quality of the model's generated stories and ensure that they align with the desired standards of logical coherence, theme adherence, and overall appropriateness for children.
+					Analyze the evaluation results to identify areas for improvement, whether they relate to logical flow, language, diversity, or other factors.
+					Use these insights to iteratively enhance the story generation process.

@@ -1,0 +1,90 @@
+opportunities and risk of using AI for this type of application
+
+
+
+the system goals and how you plan to measure them
+	System Goals:
+
+		Customizability: The web application should allow users to input specific details like the protagonist's name, a friend's name, and the theme of the story. These inputs will be used to create personalized stories.
+		Child-Friendly Content: The generated stories must be appropriate for children and promote positive values. They should avoid any harmful or inappropriate content.
+		Diversity and Equality: The stories generated should be free from gender stereotypes, promoting diversity and equality. The application should offer options to select gender-neutral names and ensure balanced roles for characters.
+		Validation: The application should validate user inputs to ensure they follow the required format and are suitable for generating a story.
+		Engagement: The stories should be engaging and coherent, capturing the attention and imagination of the young readers.
+		Performance: The application should provide responsive and quick story generation, without significant delays.
+
+	Measurement Metrics:
+
+		Customization Success Rate: Measure the percentage of successfully generated stories based on user inputs. If the story creation fails due to inappropriate input, it should be counted as a failure.
+		Content Appropriateness: Implement a content filtering mechanism to assess the appropriateness of generated stories. Use a mix of pre-defined filters and manual review to ensure child-friendly content.
+		Gender Neutrality: Analyze the distribution of gender roles in generated stories. Ensure that characters have balanced and non-stereotypical roles regardless of their gender.
+		Input Validation Accuracy: Track the number of input validation errors, such as missing fields or incorrect formats, to assess the effectiveness of the validation process.
+		Engagement Level: Integrate user feedback and engagement metrics to gauge the quality of generated stories. Monitor metrics like time spent on stories, interaction rate, and user ratings.
+		Response Time: Measure the time taken to generate and present stories to users. Optimize system performance to ensure fast response times.
+
+	Implementation Plan:
+
+		Input Form: Create a user-friendly input form that guides users through providing protagonist and friend names, story theme, and any additional customization options.
+		Input Validation: Implement thorough input validation routines to catch missing or invalid inputs. Provide clear error messages and suggestions for correction.
+		Gender-Neutral Options: Offer gender-neutral name suggestions for protagonists and friends. Ensure characters have equal opportunities regardless of gender.
+		Content Guidelines: Develop guidelines for age-appropriate and non-stereotypical content. Integrate filters to identify and eliminate inappropriate text.
+		Diverse Templates: Create a library of story templates that cover a variety of themes and styles, promoting diversity in storytelling.
+		LLM Integration: Interface with the LLM to generate stories the generated stories for quality, appropriateness, and adherence to diversity and equality standards.
+		User Feedback: Provide an option for users to provide feedback on stories. Use this feedback to improve content and user experience.
+		Analytics Integration: Integrate analytics tools to track engagement metrics, response times, and customization success rates.
+		Continuous Improvement: Regularly update and refine the application based on user feedback and evolving content guidelines.
+		
+	
+
+
+which failures of the AI component you anticipate and how you handle them
+
+		
+	• Negative
+		• Manipulation
+		• Polarization
+		• Discrimitnation
+
+
+
+the evaluation of your system from today
+	Standard benchmarks not directly related to real-world problems (Iris, MNIST, ImageNet, …)
+	• Focus on abstract metrics, not real-world impact
+	→ Accuracy instead of Return on Investment (ROI)
+	
+	
+
+extras
+
+	Add user accounts to save constraints, preferences, favorites.
+	
+	
+	Save past generated stories, allow a rating.
+		
+		s2 p33
+		Model must ensure that the output is safe for  every possible input
+			→ Model verification, hard and (currently) unsolved for most practical problems
+			May restrict input space
+				→ Avoid inputs from unknown regions
+		
+		Safety box must ensure that the output is safe for every possible input
+			→ Allows lightweight solutions		
+				May restrict input space
+					→ Avoid inputs from unknown regions
+					
+	
+	Collect feedback with a form in the application
+	
+	
+	Summarize favorite stories to automatically extract preferences
+	
+	
+	Additional consideration for ML
+		• Check if partial solutions are acceptable
+			• Requires that mistakes are acceptable or can be mitigated
+		• Data for continuous improvement should be available
+		• Predictions can have an influence on the system objectives
+			• Ensure that they contribute to the organizations objectives
+		• Cost effectiveness also affects ML model choice
+			• Should use a ML approach that is clearly cheaper and has a better cost/benefit ratio than non-ML approaches
+
+
