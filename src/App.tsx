@@ -88,18 +88,7 @@ export default function App() {
 
         {story && <ResultPanel story={story} onGenerateAnother={handleGenerateAnother} />}
 
-        <p className="footer-note">
-          v2 rewrite (React + TypeScript) of the original DreamyTales prototype — see the{' '}
-          <a
-            className="header__legacy-link"
-            href="https://github.com/AliAlperSakar/DailyDreamer/tree/v2/legacy-flask-prototype"
-            target="_blank"
-            rel="noreferrer"
-          >
-            original Flask version
-          </a>
-          .
-        </p>
+        <p className="footer-note">DreamyTales v2</p>
       </div>
 
       {loading && <LoadingOverlay />}
