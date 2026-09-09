@@ -1,0 +1,498 @@
+/* ==========================================================================
+   DreamyTales v2 — global styles
+   Faithfully carries over the original prototype's look: a twinkling
+   starry-night background, a translucent purple glass panel, orange ribbon
+   section labels, and a teal accent color on interactive controls. The CSS
+   itself has been rewritten (custom properties, real components instead of
+   one 900-line <style> block), but the palette and feel are the same.
+   ========================================================================== */
+
+:root {
+  --color-bg-text: #ffffff;
+  --color-panel: rgba(177, 94, 255, 0.28);
+  --color-panel-border: rgba(255, 255, 255, 0.12);
+  --color-section: rgba(58, 58, 58, 0.82);
+  --color-accent-teal: #00dfc4;
+  --color-accent-purple: #5600df;
+  --color-accent-orange: #ff9100;
+  --color-danger: #e5484d;
+  --color-success: #2fb872;
+  --shadow-panel: 0 20px 60px rgba(0, 0, 0, 0.55);
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Segoe UI', Geneva, Verdana,
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #0d0b1e;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: var(--font-family);
+  color: var(--color-bg-text);
+}
+
+#root {
+  min-height: 100vh;
+  padding: 32px 16px 64px;
+}
+
+@keyframes twinkling {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.app-shell {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-panel-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+  padding: 24px clamp(16px, 4vw, 40px) 40px;
+  backdrop-filter: blur(2px);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.header__logo {
+  width: min(220px, 45vw);
+  animation: twinkling 2.4s infinite ease-in-out;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.45));
+}
+
+.header__tagline {
+  margin: 4px 0 0;
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+.header__legacy-link {
+  color: var(--color-accent-teal);
+}
+
+/* ---- section card, the "theme-section" look ---- */
+
+.section {
+  position: relative;
+  background: var(--color-section);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-md);
+  margin: 18px 0;
+  padding: 18px 16px;
+}
+
+.section__ribbon {
+  position: absolute;
+  top: -14px;
+  right: 18px;
+  transform: rotate(6deg);
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-accent-orange), #ffb347);
+  color: #221100;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.section__title {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* ---- theme (Forest/City/Underwater) picker ---- */
+
+.theme-grid {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.theme-card {
+  position: relative;
+  flex: 1 1 160px;
+  max-width: 220px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
+  color: inherit;
+  text-align: center;
+}
+
+.theme-card img {
+  width: 100%;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.theme-card__label {
+  display: block;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.theme-card:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.theme-card.is-selected {
+  border-color: var(--color-accent-teal);
+  filter: brightness(1.15);
+  transform: scale(1.04);
+}
+
+/* ---- segmented buttons: age range / place / period ---- */
+
+.segmented {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.segmented-btn {
+  flex: 1 1 120px;
+  border: 2px solid #cccbcb;
+  color: var(--color-accent-teal);
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.segmented-btn:hover {
+  transform: scale(1.03);
+}
+
+.segmented-btn.is-selected,
+.segmented-btn:hover {
+  color: white;
+  background-color: var(--color-accent-purple);
+}
+
+/* ---- hero / friends / length row ---- */
+
+.trio {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.trio__card {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.trio__icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  margin: 0 auto 6px;
+  display: block;
+}
+
+.trio__label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 12px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 6px;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-color: var(--color-accent-teal);
+}
+
+.input-box span {
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  padding: 0 6px;
+  font-size: 0.65em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  background: #241a3d;
+}
+
+/* ---- creativity slider ---- */
+
+.creativity {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.creativity__icon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.creativity input[type='range'] {
+  flex: 1 1 220px;
+  accent-color: var(--color-accent-teal);
+}
+
+.creativity__value {
+  min-width: 3ch;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--color-accent-teal);
+}
+
+/* ---- additional request ---- */
+
+.additional-request input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  font: inherit;
+}
+
+/* ---- generate button ---- */
+
+.generate-row {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.generate-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.generate-btn img {
+  width: min(220px, 60vw);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.4));
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  20% {
+    transform: translate(-2px, 0) rotate(1deg);
+  }
+  40% {
+    transform: translate(2px, 1px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  80% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.generate-btn--shake {
+  animation: shake 0.5s;
+  animation-iteration-count: 3;
+}
+
+.generate-btn--shake:hover {
+  animation: shake 0.5s infinite;
+}
+
+.generate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---- loading overlay ---- */
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 6, 26, 0.65);
+  z-index: 50;
+}
+
+.loading-overlay__spinner {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.25);
+  border-top-color: var(--color-accent-teal);
+  animation: spin 0.9s linear infinite;
+}
+
+.loading-overlay__text {
+  margin-top: 16px;
+  text-align: center;
+  font-weight: 600;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---- result panel ---- */
+
+.result {
+  margin-top: 8px;
+}
+
+.result__title {
+  text-align: center;
+  background-color: var(--color-accent-orange);
+  color: #221100;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+}
+
+.result__body {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  line-height: 1.6;
+}
+
+.result__actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+}
+
+.btn--like {
+  background-color: var(--color-success);
+}
+
+.btn--like.is-active {
+  outline: 2px solid white;
+}
+
+.btn--dislike {
+  background-color: var(--color-danger);
+}
+
+.btn--dislike.is-active {
+  outline: 2px solid white;
+}
+
+.btn--secondary {
+  background-color: #3498db;
+}
+
+.comment-block {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.comment-block textarea {
+  width: min(100%, 520px);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  font: inherit;
+  padding: 10px;
+  resize: vertical;
+}
+
+.comment-block__thanks {
+  color: var(--color-accent-teal);
+  font-weight: 600;
+}
+
+.footer-note {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .trio {
+    flex-direction: column;
+  }
+}

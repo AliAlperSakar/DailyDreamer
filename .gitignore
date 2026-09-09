@@ -1,0 +1,22 @@
+# Node / Vite (v2 app)
+node_modules
+dist
+dist-ssr
+*.local
+npm-debug.log*
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+
+# Python (legacy prototype)
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets — never commit real API keys
+.env
+.env.local
